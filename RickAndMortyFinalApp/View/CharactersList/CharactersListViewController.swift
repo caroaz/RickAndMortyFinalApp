@@ -13,6 +13,7 @@ class CharactersListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.titleView = UIImageView(image: UIImage(named: "Rick-And-Morty"))
         
         view.backgroundColor = .white
         configureTableView()
@@ -53,7 +54,7 @@ class CharactersListViewController: UIViewController {
 }
 
 
-extension CharactersListViewController: UITableViewDataSource, UITableViewDelegate {
+extension CharactersListViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -102,20 +103,14 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
 
 
 
-//extension ViewController: UITableViewDelegate{
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath)
-//        selectedIndex = indexPath
-//        tableView.beginUpdates()
-//        tableView.reloadRows(at: [selectedIndex], with: .none)
-//        tableView.endUpdates()
+extension CharactersListViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+        print(indexPath.row)
+            let vcDetail = CharacterDetailViewController()
+            vcDetail.dataContent = characterList[indexPath.row]
 
-        //        let vcDetail = DetailTableView()
-        //        vcDetail.dataContent = characterList[indexPath.row]
-        //
-        //
-        //        navigationController?.pushViewController(vcDetail, animated: true)
-//    }
 
-//}
-
+            navigationController?.pushViewController(vcDetail, animated: true)
+        }
+}
