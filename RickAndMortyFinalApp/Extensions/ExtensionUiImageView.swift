@@ -6,7 +6,6 @@ extension UIImageView {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
-                
                 let data = data,
                 let image = UIImage(data: data)
             else {

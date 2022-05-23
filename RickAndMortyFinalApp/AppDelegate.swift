@@ -13,9 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         
         let restApiCall = APICallRickAndMorty()
+        let repository = CharacterListAPIRepository(restApi: restApiCall, errorMapper: APIErrorToDomainError())
         let characterListViewController = CharactersListViewController()
     
-        characterListViewController.restapi = restApiCall
+        characterListViewController.repositoryCharacter = repository
         
         let navigationController = UINavigationController(rootViewController: characterListViewController)
                 window?.rootViewController = navigationController

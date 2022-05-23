@@ -32,12 +32,9 @@ class CellCharactersList: UITableViewCell {
         containerConf()
         configureNameLabel()
         setNameLabelConstraint()
-        
         containerConstraint ()
-        
         configureImageView()
         setImageConstraint()
-        
         setNameLabelConstraint()
         setStatusLabelConstraint()
         confstatusLabel()
@@ -55,13 +52,10 @@ class CellCharactersList: UITableViewCell {
         
         container.addSubview(nameLabel)
         container.addSubview(characterImageView)
-        
         container.addSubview(myButton)
         container.addSubview(statusLabel)
         container.clipsToBounds = true
     }
-    
-    
     
     private func configureImageView () {
         characterImageView.layer.cornerRadius = 10
@@ -80,7 +74,7 @@ class CellCharactersList: UITableViewCell {
     private func mybuttonConfig() {
         myButton.configuration = .gray()
         myButton.configuration?.title = "Status"
-
+        
     }
     //
     
@@ -93,7 +87,6 @@ class CellCharactersList: UITableViewCell {
             
             characterImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 12),
             characterImageView.heightAnchor.constraint(equalToConstant: 80),
-            
             characterImageView.widthAnchor.constraint(equalTo:  characterImageView.heightAnchor,multiplier: 16/9)
             
         ])

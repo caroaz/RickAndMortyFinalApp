@@ -4,7 +4,8 @@ class CharactersListViewController: UIViewController {
     
     var characterList :  [Characters] = []
     var tableView = UITableView ()
-    var restapi: APIRest?
+    var imageLogo : UIImage = UIImage(named: "Rick-And-Morty")!
+    var repositoryCharacter:  CharactersRepository?
     
     struct Cells{
         static let mycell = "my cell"
@@ -12,24 +13,27 @@ class CharactersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.titleView = UIImageView(image: UIImage(named: "Rick-And-Morty"))
-        
+        setImageLogo()
         view.backgroundColor = .white
         configureTableView()
         
-        restapi?.fetchData { characters, error in
+        repositoryCharacter?.fetchCharactersList { characters, error in
             
             DispatchQueue.main.async {
                 guard let characters = characters else {
-                    print(error?.message ?? "error")
+                    print(error as Any)
                     return
                 }
                 self.characterList = characters
                 self.tableView.reloadData()
             }
         }
-        
+    }
+    func setImageLogo(){
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageLogo
+        navigationItem.titleView = imageView
     }
     
     func configureTableView() {
@@ -81,12 +85,10 @@ extension CharactersListViewController: UITableViewDataSource{
         
         return cell
         
-        
     }
     
     @objc func clickButton(_ sender:UIButton) {
         let index = sender.tag
-        
         shouldCellBeExpanded.toggle()
         
         let indexPath = IndexPath(item: index, section: 0)
@@ -100,17 +102,11 @@ extension CharactersListViewController: UITableViewDataSource{
     }
 }
 
-
-
-
 extension CharactersListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
-        print(indexPath.row)
-            let vcDetail = CharacterDetailViewController()
-            vcDetail.dataContent = characterList[indexPath.row]
-
-
-            navigationController?.pushViewController(vcDetail, animated: true)
-        }
+        
+        let vcDetail = CharacterDetailViewController()
+        vcDetail.dataContent = characterList[indexPath.row]
+        navigationController?.pushViewController(vcDetail, animated: true)
+    }
 }

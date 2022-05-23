@@ -1,12 +1,12 @@
 
 import Foundation
 class APICallRickAndMorty: APIRest {
-   
-
+    
+    
     private let urlSession : URLSession
-       init (session: URLSession = URLSession.shared){
-           urlSession = session
-       }
+    init (session: URLSession = URLSession.shared){
+        urlSession = session
+    }
     
     func fetchData(onCompletion: @escaping ( [Characters]?, APIError?) -> Void) {
         let url = URL(string: "https://rickandmortyapi.com/api/character")!
