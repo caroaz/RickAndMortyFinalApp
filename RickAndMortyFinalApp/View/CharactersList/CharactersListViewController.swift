@@ -5,7 +5,6 @@ class CharactersListViewController: UIViewController {
     var characterList :  [Characters] = []
     var tableView = UITableView ()
     var imageLogo : UIImage = UIImage(named: "Rick-And-Morty")!
-    var repositoryCharacter:  CharactersRepository?
     var useCase: GetCharacterList?
     
     struct Cells{
@@ -18,16 +17,23 @@ class CharactersListViewController: UIViewController {
         view.backgroundColor = .white
         configureTableView()
         
-        useCase?.execute { characters, error in
-            
+        useCase?.execute { result in
             DispatchQueue.main.async {
-                guard let characters = characters else {
-                    print(error as Any)
-                    return
+            
+                switch result {
+                case .success(let characters):
+                    for chacter in characters.description {
+                    self.characterList = characters
+                    self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    
+                    print(error.description)
+            
                 }
-                self.characterList = characters
-                self.tableView.reloadData()
+               
             }
+            
         }
     }
     func setImageLogo(){

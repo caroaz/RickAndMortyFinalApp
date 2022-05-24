@@ -11,15 +11,14 @@ class CharacterListAPIRepository: CharactersRepository {
         
     }
     
-    func fetchCharactersList(onCompletion: @escaping ([Characters]?, DomainError?) -> Void) {
+    func fetchCharactersList(onCompletion: @escaping (Result<[Characters], DomainError>) -> Void) {
         restApi.fetchData { characters, error in
             if let characters = characters {
                 let list = characters
-                onCompletion(list, nil)
+                onCompletion(.success(list))
             }
-            else {                
-                let domainError = self.errorMapper.reverseMap(value: error ?? APIError.init(message: ""))
-                onCompletion(nil, domainError)
+            else {
+                onCompletion(.failure(DomainError(description: "Error")))
             }
         }
     }
