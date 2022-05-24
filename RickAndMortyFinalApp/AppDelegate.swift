@@ -11,13 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
-        
-        let restApiCall = APICallRickAndMorty()
-        let repository = CharacterListAPIRepository(restApi: restApiCall, errorMapper: APIErrorToDomainError())
-        let useCaseCharacterList = GetCharacterList(characterListRepository: repository)
-        let characterListViewController = CharactersListViewController()
+     
+        let presenter = CharacterListPresenter(getCharacterListUseCase: RickandMortyServiceLocator().getCharacterListUseCase)
+        let characterListViewController = CharactersListViewController(presenter: presenter)
     
-        characterListViewController.useCase = useCaseCharacterList
+        presenter.view = characterListViewController
         
         let navigationController = UINavigationController(rootViewController: characterListViewController)
                 window?.rootViewController = navigationController

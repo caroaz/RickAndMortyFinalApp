@@ -5,36 +5,30 @@ class CharactersListViewController: UIViewController {
     var characterList :  [Characters] = []
     var tableView = UITableView ()
     var imageLogo : UIImage = UIImage(named: "Rick-And-Morty")!
-    var useCase: GetCharacterList?
+    var useCase: GetCharacterListUseCase?
+    private var presenter: CharacterListPresenterProtocol?
     
     struct Cells{
         static let mycell = "my cell"
+    }
+    convenience init(
+        //            viewDataSource: BreedsListViewDataSource,
+        //            viewDelegate: BreedsListViewDelegate,
+        presenter: CharacterListPresenterProtocol
+    ) {
+        self.init()
+        //            self.viewDataSource = viewDataSource
+        //            self.viewDelegate = viewDelegate
+        self.presenter = presenter
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setImageLogo()
         view.backgroundColor = .white
+        presenter?.getCharacterList()
         configureTableView()
         
-        useCase?.execute { result in
-            DispatchQueue.main.async {
-            
-                switch result {
-                case .success(let characters):
-                    for chacter in characters.description {
-                    self.characterList = characters
-                    self.tableView.reloadData()
-                    }
-                case .failure(let error):
-                    
-                    print(error.description)
-            
-                }
-               
-            }
-            
-        }
     }
     func setImageLogo(){
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -62,6 +56,16 @@ class CharactersListViewController: UIViewController {
     
     var selectedIndex = IndexPath(row: 0, section: 0)
     var shouldCellBeExpanded:Bool = false
+}
+extension CharactersListViewController: CharacterListView {
+    func displayList(_ list: [Characters]) {
+        characterList = list
+        tableView.reloadData()
+    }
+    
+    func displayError(_ error: DomainError) {
+        print(error.description)
+    }
 }
 
 

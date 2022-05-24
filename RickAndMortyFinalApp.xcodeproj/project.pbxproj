@@ -30,7 +30,11 @@
 		25C9C223283BD3300076FD7A /* CellCharacterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C222283BD3300076FD7A /* CellCharacterDetails.swift */; };
 		25C9C226283BED0A0076FD7A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C225283BED0A0076FD7A /* Mapper.swift */; };
 		25C9C228283BED520076FD7A /* APIErrorToDomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C227283BED520076FD7A /* APIErrorToDomainError.swift */; };
-		25C9C22A283C77D00076FD7A /* GetCharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C229283C77D00076FD7A /* GetCharacterList.swift */; };
+		25C9C22A283C77D00076FD7A /* GetCharacterListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C229283C77D00076FD7A /* GetCharacterListUseCase.swift */; };
+		25C9C22E283D73A00076FD7A /* RickandMortyServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C22D283D73A00076FD7A /* RickandMortyServiceLocator.swift */; };
+		25C9C230283D80670076FD7A /* CharacterListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C22F283D80670076FD7A /* CharacterListPresenterProtocol.swift */; };
+		25C9C232283D80F50076FD7A /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C231283D80F50076FD7A /* CharacterListPresenter.swift */; };
+		25C9C234283D815C0076FD7A /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C233283D815C0076FD7A /* CharacterListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +82,11 @@
 		25C9C222283BD3300076FD7A /* CellCharacterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCharacterDetails.swift; sourceTree = "<group>"; };
 		25C9C225283BED0A0076FD7A /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		25C9C227283BED520076FD7A /* APIErrorToDomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorToDomainError.swift; sourceTree = "<group>"; };
-		25C9C229283C77D00076FD7A /* GetCharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterList.swift; sourceTree = "<group>"; };
+		25C9C229283C77D00076FD7A /* GetCharacterListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterListUseCase.swift; sourceTree = "<group>"; };
+		25C9C22D283D73A00076FD7A /* RickandMortyServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickandMortyServiceLocator.swift; sourceTree = "<group>"; };
+		25C9C22F283D80670076FD7A /* CharacterListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterProtocol.swift; sourceTree = "<group>"; };
+		25C9C231283D80F50076FD7A /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
+		25C9C233283D815C0076FD7A /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,12 +137,13 @@
 		25C9C1C22837F3A10076FD7A /* RickAndMortyFinalApp */ = {
 			isa = PBXGroup;
 			children = (
+				25C9C22C283D71AE0076FD7A /* DI */,
+				25C9C1F32837F5440076FD7A /* Network */,
 				25C9C1F72837FADF0076FD7A /* Domain */,
 				25C9C215283817810076FD7A /* Data */,
 				25C9C20B2838131A0076FD7A /* View */,
 				25C9C208283811570076FD7A /* Cells */,
 				25C9C1FF2837FC670076FD7A /* Extensions */,
-				25C9C1F32837F5440076FD7A /* Network */,
 				25C9C1C32837F3A10076FD7A /* AppDelegate.swift */,
 				25C9C1CC2837F3A30076FD7A /* Assets.xcassets */,
 				25C9C1CE2837F3A30076FD7A /* LaunchScreen.storyboard */,
@@ -227,6 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				25C9C1C72837F3A10076FD7A /* CharactersListViewController.swift */,
+				25C9C22F283D80670076FD7A /* CharacterListPresenterProtocol.swift */,
+				25C9C231283D80F50076FD7A /* CharacterListPresenter.swift */,
+				25C9C233283D815C0076FD7A /* CharacterListView.swift */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -279,9 +291,17 @@
 		25C9C22B283C77D90076FD7A /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				25C9C229283C77D00076FD7A /* GetCharacterList.swift */,
+				25C9C229283C77D00076FD7A /* GetCharacterListUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		25C9C22C283D71AE0076FD7A /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				25C9C22D283D73A00076FD7A /* RickandMortyServiceLocator.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,15 +440,19 @@
 				25C9C1F62837F60A0076FD7A /* APICallRickAndMorty.swift in Sources */,
 				25C9C228283BED520076FD7A /* APIErrorToDomainError.swift in Sources */,
 				25C9C2052837FD780076FD7A /* ExtensionUiImageView.swift in Sources */,
+				25C9C232283D80F50076FD7A /* CharacterListPresenter.swift in Sources */,
+				25C9C22E283D73A00076FD7A /* RickandMortyServiceLocator.swift in Sources */,
 				25C9C2012837FCB20076FD7A /* ExtensionUIView.swift in Sources */,
 				25C9C20E283814350076FD7A /* APIRest.swift in Sources */,
-				25C9C22A283C77D00076FD7A /* GetCharacterList.swift in Sources */,
+				25C9C22A283C77D00076FD7A /* GetCharacterListUseCase.swift in Sources */,
 				25C9C1FC2837FBAE0076FD7A /* CharacterList.swift in Sources */,
 				25C9C223283BD3300076FD7A /* CellCharacterDetails.swift in Sources */,
 				25C9C20A2838116D0076FD7A /* CellCharactersList.swift in Sources */,
 				25C9C226283BED0A0076FD7A /* Mapper.swift in Sources */,
 				25C9C1C42837F3A10076FD7A /* AppDelegate.swift in Sources */,
 				25C9C2032837FD1B0076FD7A /* ExtensionAttributedString.swift in Sources */,
+				25C9C234283D815C0076FD7A /* CharacterListView.swift in Sources */,
+				25C9C230283D80670076FD7A /* CharacterListPresenterProtocol.swift in Sources */,
 				25C9C218283817A60076FD7A /* CharactersListsAPIRepository.swift in Sources */,
 				25C9C1FA2837FB3A0076FD7A /* Characters.swift in Sources */,
 				25C9C21C283819410076FD7A /* DomainError.swift in Sources */,
