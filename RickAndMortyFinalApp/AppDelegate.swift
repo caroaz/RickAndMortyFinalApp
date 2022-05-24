@@ -11,10 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
-        
-        let characterListViewController = CharactersListViewController()
+     
+        let presenter = CharacterListPresenter(getCharacterListUseCase: RickandMortyServiceLocator().getCharacterListUseCase)
+        let characterListViewController = CharactersListViewController(presenter: presenter)
     
-        characterListViewController.useCase = RickandMortyServiceLocator().getCharacterListUseCase
+        presenter.view = characterListViewController
         
         let navigationController = UINavigationController(rootViewController: characterListViewController)
                 window?.rootViewController = navigationController

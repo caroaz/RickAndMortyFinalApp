@@ -1,10 +1,7 @@
 
-import Foundation
 class RickandMortyServiceLocator {
     private let restApi = APICallRickAndMorty()
-   
- 
-    
+
     private var repository: CharacterListAPIRepository {
         return CharacterListAPIRepository(
             restApi: restApi
