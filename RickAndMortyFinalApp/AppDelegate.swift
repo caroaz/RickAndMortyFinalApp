@@ -14,9 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let restApiCall = APICallRickAndMorty()
         let repository = CharacterListAPIRepository(restApi: restApiCall, errorMapper: APIErrorToDomainError())
+        let useCaseCharacterList = GetCharacterList(characterListRepository: repository)
         let characterListViewController = CharactersListViewController()
     
-        characterListViewController.repositoryCharacter = repository
+        characterListViewController.useCase = useCaseCharacterList
         
         let navigationController = UINavigationController(rootViewController: characterListViewController)
                 window?.rootViewController = navigationController
