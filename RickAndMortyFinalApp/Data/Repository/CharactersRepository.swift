@@ -1,5 +1,5 @@
 //centralizar el acceso a la información 
 protocol CharactersRepository {
-    func fetchCharactersList(onCompletion: @escaping ([Characters]? , DomainError?) -> Void)
+    func fetchCharactersList(onCompletion: @escaping (Result<[Characters], DomainError>) -> Void)
     
 }
