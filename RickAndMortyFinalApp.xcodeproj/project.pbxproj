@@ -35,6 +35,8 @@
 		25C9C230283D80670076FD7A /* CharacterListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C22F283D80670076FD7A /* CharacterListPresenterProtocol.swift */; };
 		25C9C232283D80F50076FD7A /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C231283D80F50076FD7A /* CharacterListPresenter.swift */; };
 		25C9C234283D815C0076FD7A /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C233283D815C0076FD7A /* CharacterListView.swift */; };
+		25C9C236283D89750076FD7A /* CharacterListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C235283D89750076FD7A /* CharacterListDataSource.swift */; };
+		25C9C238283D8CF00076FD7A /* CharacterListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C9C237283D8CF00076FD7A /* CharacterListDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		25C9C22F283D80670076FD7A /* CharacterListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterProtocol.swift; sourceTree = "<group>"; };
 		25C9C231283D80F50076FD7A /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
 		25C9C233283D815C0076FD7A /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		25C9C235283D89750076FD7A /* CharacterListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataSource.swift; sourceTree = "<group>"; };
+		25C9C237283D8CF00076FD7A /* CharacterListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,8 @@
 				25C9C22F283D80670076FD7A /* CharacterListPresenterProtocol.swift */,
 				25C9C231283D80F50076FD7A /* CharacterListPresenter.swift */,
 				25C9C233283D815C0076FD7A /* CharacterListView.swift */,
+				25C9C235283D89750076FD7A /* CharacterListDataSource.swift */,
+				25C9C237283D8CF00076FD7A /* CharacterListDelegate.swift */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -443,9 +449,11 @@
 				25C9C232283D80F50076FD7A /* CharacterListPresenter.swift in Sources */,
 				25C9C22E283D73A00076FD7A /* RickandMortyServiceLocator.swift in Sources */,
 				25C9C2012837FCB20076FD7A /* ExtensionUIView.swift in Sources */,
+				25C9C238283D8CF00076FD7A /* CharacterListDelegate.swift in Sources */,
 				25C9C20E283814350076FD7A /* APIRest.swift in Sources */,
 				25C9C22A283C77D00076FD7A /* GetCharacterListUseCase.swift in Sources */,
 				25C9C1FC2837FBAE0076FD7A /* CharacterList.swift in Sources */,
+				25C9C236283D89750076FD7A /* CharacterListDataSource.swift in Sources */,
 				25C9C223283BD3300076FD7A /* CellCharacterDetails.swift in Sources */,
 				25C9C20A2838116D0076FD7A /* CellCharactersList.swift in Sources */,
 				25C9C226283BED0A0076FD7A /* Mapper.swift in Sources */,

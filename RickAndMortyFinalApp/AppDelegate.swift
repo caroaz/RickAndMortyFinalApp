@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
      
         let presenter = CharacterListPresenter(getCharacterListUseCase: RickandMortyServiceLocator().getCharacterListUseCase)
-        let characterListViewController = CharactersListViewController(presenter: presenter)
+        
+        let characterListViewController = CharactersListViewController(viewDataSource: CharacterListDataSource(), viewDelegate: CharacterListDelegate(), presenter: presenter)
     
         presenter.view = characterListViewController
         
