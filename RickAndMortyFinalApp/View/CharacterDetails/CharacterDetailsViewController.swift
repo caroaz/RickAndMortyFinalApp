@@ -20,19 +20,16 @@ class CharacterDetailViewController: UIViewController{
         
         view.backgroundColor = .white
         configureTableView()
-        
-        
+   
         // Do any additional setup after loading the view.
     }
     func configureTableView() {
         view.addSubview(tableDetailView)
-        
-        
+
         setTableViewDelegates()
         tableDetailView.rowHeight = 280
         tableDetailView.register(CellCharacterDetails.self, forCellReuseIdentifier: ImageCells.myImageCell)
         tableDetailView.register(CellCharacterDetails.self, forCellReuseIdentifier: DataCells.myDataCell)
-        
         tableDetailView.pin(to :view)
         
     }
@@ -47,7 +44,7 @@ class CharacterDetailViewController: UIViewController{
 }
 
 extension CharacterDetailViewController : UITableViewDataSource{
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -77,8 +74,6 @@ extension CharacterDetailViewController : UITableViewDataSource{
         mylabelcell.contentLabel.attributedText = NSMutableAttributedString()
             .bold(key)
             .normal(content)
-        
-        
         return mylabelcell
     }
 }
