@@ -1,4 +1,4 @@
-struct GetCharacterList {
+struct GetCharacterListUseCase {
     private let characterListRepository: CharacterListAPIRepository
     
     init(characterListRepository: CharacterListAPIRepository) {

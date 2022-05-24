@@ -5,7 +5,7 @@ class CharactersListViewController: UIViewController {
     var characterList :  [Characters] = []
     var tableView = UITableView ()
     var imageLogo : UIImage = UIImage(named: "Rick-And-Morty")!
-    var useCase: GetCharacterList?
+    var useCase: GetCharacterListUseCase?
     
     struct Cells{
         static let mycell = "my cell"
