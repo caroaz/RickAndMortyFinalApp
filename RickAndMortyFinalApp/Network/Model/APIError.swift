@@ -1,3 +1,3 @@
-struct APIError {
+struct APIError: Error {
     let message: String
 }

@@ -21,8 +21,8 @@ extension CharacterListDelegate: UITableViewDelegate{
         guard let view = view else {
             return
         }
-        let vcDetail = CharacterDetailViewControllerFactory.makeCharacterDetailViewController()
-        vcDetail.dataContent = view.characterList[indexPath.row]
-        view.navigationController?.pushViewController(vcDetail, animated: true)
+        
+        let cellContent =  view.characterList[indexPath.row]
+        view.showNextVIewController(name: cellContent)
     }
 }
