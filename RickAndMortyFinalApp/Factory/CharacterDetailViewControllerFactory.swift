@@ -3,7 +3,7 @@
 import Foundation
  
 class CharacterDetailViewControllerFactory {
-    static private let serviceLocator = RickandMortyServiceLocator()
+//    static private let serviceLocator = RickandMortyServiceLocator()
     
     static func makeCharacterDetailViewController() -> CharacterDetailViewController {
       
@@ -12,8 +12,7 @@ class CharacterDetailViewControllerFactory {
             viewDelegate: CharacterDetailDelegate()
           
         )
-       
-        
+
         return characterDetailViewController
     }
 }

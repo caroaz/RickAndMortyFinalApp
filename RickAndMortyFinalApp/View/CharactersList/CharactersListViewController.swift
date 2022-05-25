@@ -59,6 +59,14 @@ class CharactersListViewController: UIViewController {
     var shouldCellBeExpanded:Bool = false
 }
 extension CharactersListViewController: CharacterListView {
+    func showNextVIewController(name: Characters) {
+        let vcDetail = CharacterDetailViewControllerFactory.makeCharacterDetailViewController()
+     
+        vcDetail.dataContent = name
+ 
+        self.navigationController?.pushViewController(vcDetail, animated: true)
+    }
+    
     func displayList(_ list: [Characters]) {
         characterList = list
         tableView.reloadData()
