@@ -12,11 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
      
-        let presenter = CharacterListPresenter(getCharacterListUseCase: RickandMortyServiceLocator().getCharacterListUseCase)
-        
-        let characterListViewController = CharactersListViewController(viewDataSource: CharacterListDataSource(), viewDelegate: CharacterListDelegate(), presenter: presenter)
-    
-        presenter.view = characterListViewController
+        let characterListViewController = CharacterListViewControllerFactory.makeCharacterListViewController()
         
         let navigationController = UINavigationController(rootViewController: characterListViewController)
                 window?.rootViewController = navigationController
