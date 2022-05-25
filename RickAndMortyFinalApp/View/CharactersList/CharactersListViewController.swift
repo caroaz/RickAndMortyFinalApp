@@ -5,7 +5,7 @@ class CharactersListViewController: UIViewController {
     var characterList :  [Characters] = []
     var tableView = UITableView ()
     var imageLogo : UIImage = UIImage(named: "Rick-And-Morty")!
-    var useCase: GetCharacterListUseCase?
+    
     private var presenter: CharacterListPresenterProtocol?
     private var viewDataSource: CharacterListDataSource?
     private var viewDelegate: CharacterListDelegate?
