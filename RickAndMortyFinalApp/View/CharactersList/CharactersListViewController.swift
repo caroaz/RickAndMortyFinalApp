@@ -5,6 +5,8 @@ class CharactersListViewController: UIViewController {
     var characterList :  [Characters] = []
     var tableView = UITableView ()
     var imageLogo : UIImage = UIImage(named: "Rick-And-Morty")!
+    var selectedIndex = IndexPath(row: 0, section: 0)
+    var shouldCellBeExpanded:Bool = false
     
     private var presenter: CharacterListPresenterProtocol?
     private var viewDataSource: CharacterListDataSource?
@@ -52,13 +54,11 @@ class CharactersListViewController: UIViewController {
         tableView.delegate = viewDelegate
         viewDelegate?.view = self
     }
-    
-    
-    
-    var selectedIndex = IndexPath(row: 0, section: 0)
-    var shouldCellBeExpanded:Bool = false
+
 }
 extension CharactersListViewController: CharacterListView {
+   
+    
     func showNextVIewController(name: Characters) {
         let vcDetail = CharacterDetailViewControllerFactory.makeCharacterDetailViewController()
      

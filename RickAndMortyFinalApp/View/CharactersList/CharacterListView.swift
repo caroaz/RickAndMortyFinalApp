@@ -7,4 +7,5 @@ protocol CharacterListView: AnyObject {
     func showNextVIewController(name: Characters)
     
     var characterList: [Characters] { get set }
+    
 }

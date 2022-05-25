@@ -23,6 +23,9 @@ class CellCharacterDetails: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
+    
     func set(results: Characters){
         let url = URL(string: results.image)
         characterImageView.downloaded(from: url!)
