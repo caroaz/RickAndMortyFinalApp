@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 class CharacterListDelegate : NSObject{
     
-    weak var view: CharactersListViewController?
+    weak var view: CharacterListView?
     
 }
 
