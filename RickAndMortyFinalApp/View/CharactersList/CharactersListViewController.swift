@@ -25,10 +25,11 @@ class CharactersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
         setImageLogo()
         view.backgroundColor = .white
         presenter?.getCharacterList()
-        configureTableView()
+        
         
     }
     func setImageLogo(){

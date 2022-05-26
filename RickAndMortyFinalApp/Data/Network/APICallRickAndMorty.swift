@@ -14,13 +14,14 @@ class APICallRickAndMorty: APIRest {
             
             (data, response, error ) in
             guard let data = data else {
-                onCompletion(.failure(APIError(message: "")))
+                onCompletion(.failure(APIError(message: "error request")))
                 return}
             guard  let characterList = try? JSONDecoder().decode(CharacterList.self, from: data) else {
-                onCompletion(.failure(APIError(message: "")))
+                onCompletion(.failure(APIError(message: "errorModel")))
                 return
             }
             onCompletion(.success(characterList.results))
+      print (characterList.results)
         }
         task.resume()
     }

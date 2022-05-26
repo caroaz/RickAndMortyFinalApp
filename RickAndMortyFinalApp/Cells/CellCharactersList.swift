@@ -2,22 +2,7 @@
 import Foundation
 import UIKit
 class CellCharactersList: UITableViewCell {
-    
-    var miViewController: CharactersListViewController?
-    
-    var shouldCellBeExpanded : Bool = false
-    
-    var results: Characters?{
-        didSet {
-            guard let results =  results else {return}
-            self.nameLabel.text = results.name
-            let url = URL(string: results.image)
-            self.characterImageView.downloaded(from: url!)
-            self.statusLabel.text = results.status
-            
-        }
-    }
-    
+    private var prepared = false
     
     private var nameLabel = UILabel()
     private var statusLabel = UILabel()
@@ -25,11 +10,27 @@ class CellCharactersList: UITableViewCell {
     private var container = UIView ()
     var myButton = UIButton()
     
+    var shouldCellBeExpanded : Bool = false
+    
+    
+    var results: Characters?{
+        didSet {
+            guard let results =  results else {return}
+            self.nameLabel.text = results.name
+            self.statusLabel.text = results.status
+            
+            let url = URL(string: results.image)
+        
+                self.characterImageView.downloaded(from: url!)
+        }
+        
+    }
+  
     func prepare(){
-        
+        if !prepared{
+            
         contentView.addSubview(container)
-        
-        containerConf()
+            containerConf()
         configureNameLabel()
         setNameLabelConstraint()
         containerConstraint ()
@@ -40,6 +41,23 @@ class CellCharactersList: UITableViewCell {
         confstatusLabel()
         mybuttonConfig()
         myButtonConstraint()
+            prepared = true
+                characterImageView.image = UIImage(named: "placeholder")
+            }
+    }
+    private func containerConf(){
+        container.addSubview(characterImageView)
+        container.addSubview(nameLabel)
+        
+        container.addSubview(myButton)
+        container.addSubview(statusLabel)
+        container.clipsToBounds = true
+        
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        characterImageView.image = UIImage(named: "placeholder")
+        
     }
     
     func animated () {
@@ -48,14 +66,7 @@ class CellCharactersList: UITableViewCell {
         })
     }
     
-    private func containerConf(){
-        
-        container.addSubview(nameLabel)
-        container.addSubview(characterImageView)
-        container.addSubview(myButton)
-        container.addSubview(statusLabel)
-        container.clipsToBounds = true
-    }
+   
     
     private func configureImageView () {
         characterImageView.layer.cornerRadius = 10
@@ -77,8 +88,7 @@ class CellCharactersList: UITableViewCell {
         
     }
     //
-    
-    
+   
     private func setImageConstraint(){
         characterImageView.translatesAutoresizingMaskIntoConstraints = false
         

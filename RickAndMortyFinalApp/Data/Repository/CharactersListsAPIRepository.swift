@@ -13,6 +13,8 @@ class CharacterListAPIRepository: CharactersRepository {
     func fetchCharactersList(onCompletion: @escaping (Result<[Characters], DomainError>) -> Void) {
         
         restApi.fetchData{ result in
+            DispatchQueue.main.async {
+                
             
             switch result {
             case .success(let characters):
@@ -22,7 +24,7 @@ class CharacterListAPIRepository: CharactersRepository {
                 let domainError = self.errorMapper.reverseMap(value: error)
                 onCompletion(.failure(domainError))
             }
-            
+            }
     }
 }
 }

@@ -11,15 +11,15 @@ class CharacterListPresenter: CharacterListPresenterProtocol {
     
     func getCharacterList() {
         getCharacterListUseCase.execute { [weak self] result in
-            DispatchQueue.main.async {
-                
-                switch result {
-                case .success(let characters):
-                    self?.view?.displayList(characters)
-                case .failure(let error):
-                    self?.view?.displayError(error)
-                }
+            
+            switch result {
+            case .success(let characters):
+                self?.view?.displayList(characters)
+            case .failure(let error):
+                self?.view?.displayError(error)
             }
+            
+            
         }
-    }   
+    }
 }
