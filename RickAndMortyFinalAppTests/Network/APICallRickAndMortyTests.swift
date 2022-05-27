@@ -32,8 +32,8 @@ class APICallRickAndMortyTests: XCTestCase {
         sut.fetchData {result in
             print(result)
             switch  result {
-            case .success(let characters):
-                XCTAssertNotNil(characters)
+            case .success(let charactersList):
+                XCTAssertNotNil(charactersList)
             case .failure:
                 XCTFail("asd")
                 

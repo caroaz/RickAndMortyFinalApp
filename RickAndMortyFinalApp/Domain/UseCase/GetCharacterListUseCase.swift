@@ -1,7 +1,7 @@
 struct GetCharacterListUseCase {
-    private let characterListRepository: CharacterListAPIRepository
+    private let characterListRepository: CharactersRepository
     
-    init(characterListRepository: CharacterListAPIRepository) {
+    init(characterListRepository: CharactersRepository) {
         self.characterListRepository = characterListRepository
     }
     

@@ -21,7 +21,7 @@ class APICallRickAndMorty: APIRest {
                 return
             }
             onCompletion(.success(characterList.results))
-      print (characterList.results)
+//      print (characterList.results)
         }
         task.resume()
     }

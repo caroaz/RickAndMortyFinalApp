@@ -1,6 +1,6 @@
 
 class RickandMortyServiceLocator {
-    private let restApi = APICallRickAndMorty()
+    private let restApi = AlamofireCallRickAndMorty()
     private let errorMapper = APIErrorToDomainError()
     
     private var repository: CharacterListAPIRepository {
