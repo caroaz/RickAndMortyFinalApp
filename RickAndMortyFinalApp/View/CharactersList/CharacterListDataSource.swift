@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class CharacterListDataSource: NSObject {
-    weak var view: CharactersListViewController?
+    weak var view: CharacterListView?
 }
 
 extension CharacterListDataSource: UITableViewDataSource{
