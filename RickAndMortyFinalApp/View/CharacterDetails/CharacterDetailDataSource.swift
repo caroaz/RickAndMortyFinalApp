@@ -20,7 +20,10 @@ extension CharacterDetailDataSource: UITableViewDataSource {
         switch indexPath.row{
         case .zero:
             let mycell = view.tableDetailView.dequeueReusableCell(withIdentifier: "imageCell") as! CellCharacterDetails
-            mycell.characterImageView.downloaded(from: (view.dataContent?.image)!)
+            if let url = view.dataContent?.image  {
+            mycell.characterImageView.downloaded(from: url)
+                
+            }
             return mycell
         case 1:
             return prepareDataCell(view.tableDetailView, key: "Name:", content: "  \(view.dataContent?.name ?? "ok")")

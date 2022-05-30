@@ -55,32 +55,29 @@ class CharacterListDataSourceTest: XCTestCase {
         viewController.viewDidLoad()
         let tableview = viewController.view.subviews[0] as! UITableView
         let cell = sut.tableView(tableview, cellForRowAt: IndexPath(row: 0, section: 0))
-//        print(cell.r)
         XCTAssertTrue((cell as Any) is UITableViewCell)
 
     }
     
-//    func testShowNextViewControllerIsCalledViewNil() {
-//        sut.view = nil
-//        let tableView = viewController.view.subviews[0] as! UITableView
-//        let test = sut.tableView(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
-//        print(test)
-//        XCTAssertFalse(characterListView.showNextViewControllerCalled)
-//    }
-//
-//    func testheightForRowAtReturn200() {
-//
-//        let tableview = viewController.view.subviews[0] as! UITableView
-//       let resultHeightForRow = sut.tableView(tableview, heightForRowAt: IndexPath(row: 1, section: 1))
-////        print(asd)
-//        XCTAssertEqual(resultHeightForRow, 200.0)
-//    }
-//    func testheightForRowAtReturn0() {
-//        sut.view = nil
-//        let tableview = viewController.view.subviews[0] as! UITableView
-//       let asd = sut.tableView(tableview, heightForRowAt: IndexPath(row: 1, section: 1))
-//        print(asd)
-//        XCTAssertEqual(asd , 0)
-//    }
-//
+    func testNumberofRowsInSection()  {
+       let viewController = CharactersListViewController()
+        
+        viewController.characterList = [Characters(identifier: 1, name: "name", status: "alive", species: "strange", image: "image", gender: "female")]
+        sut.view = viewController
+        let numberOfRow = sut.tableView(UITableView() , numberOfRowsInSection: 0)
+        
+        XCTAssertEqual( numberOfRow, 1)
+    }
+    
+    func testNumberofRowsInSectionWhitNilView(){
+        sut.view = nil
+        let rows = sut.tableView(UITableView() , numberOfRowsInSection: 0)
+        XCTAssertEqual( rows, 0)
+    }
+    func testButton() {
+        
+        let button = sut.clickButton(UIButton())
+        
+        print(button )
+    }
 }
