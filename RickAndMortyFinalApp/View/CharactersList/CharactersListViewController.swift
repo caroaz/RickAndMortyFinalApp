@@ -46,6 +46,7 @@ class CharactersListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.register(CellCharactersList.self, forCellReuseIdentifier: "characterListCell")
+        
         tableView.pin(to :view)
         
     }

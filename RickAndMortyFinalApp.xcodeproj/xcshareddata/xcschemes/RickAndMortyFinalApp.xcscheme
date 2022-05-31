@@ -40,6 +40,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "CharacterDetailDataSourceTest/testCellForRowCase2()">
+               </Test>
+               <Test
                   Identifier = "CharacterDetailDelegateTest/testShowNextViewControllerIsCalled()">
                </Test>
             </SkippedTests>

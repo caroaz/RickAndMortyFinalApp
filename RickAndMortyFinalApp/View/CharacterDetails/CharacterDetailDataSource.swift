@@ -20,10 +20,9 @@ extension CharacterDetailDataSource: UITableViewDataSource {
         switch indexPath.row{
         case .zero:
             let mycell = view.tableDetailView.dequeueReusableCell(withIdentifier: "imageCell") as! CellCharacterDetails
-            if let url = view.dataContent?.image  {
-            mycell.characterImageView.downloaded(from: url)
-                
-            }
+            
+            mycell.results = view.dataContent
+            
             return mycell
         case 1:
             return prepareDataCell(view.tableDetailView, key: "Name:", content: "  \(view.dataContent?.name ?? "ok")")
@@ -39,8 +38,10 @@ extension CharacterDetailDataSource: UITableViewDataSource {
         
     }
     
-    private func prepareDataCell(_ tableView: UITableView, key: String, content: String) -> CellCharacterDetails{
-        let mylabelcell = tableView.dequeueReusableCell(withIdentifier: "dataCell") as! CellCharacterDetails
+    private func prepareDataCell(_ tableView: UITableView, key: String, content: String) -> CellCharacterDetailsContent{
+        let mylabelcell = tableView.dequeueReusableCell(withIdentifier: "dataCell") as! CellCharacterDetailsContent
+        
+        mylabelcell.results = view?.dataContent
         mylabelcell.contentLabel.attributedText = NSMutableAttributedString()
             .bold(key)
             .normal(content)

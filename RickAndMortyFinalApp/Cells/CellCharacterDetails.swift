@@ -6,36 +6,43 @@ class CellCharacterDetails: UITableViewCell {
     
     var characterImageView = UIImageView()
     var contentLabel = UILabel()
+    private var prepared = false
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    var results: Characters?{
+        didSet {
+            prepare()
+            setImage()
+        }
         
-        contentView.addSubview(characterImageView)
-        contentView.addSubview(contentLabel)
-        
-        
-        configureImageView()
-        confirgureContentLabel ()
-        setImageConstraint()
-        setContentLabelConstraint ()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func prepare() {
+        if !prepared{
+            
+            contentView.addSubview(characterImageView)
+            
+            configureImageView()
+            setImageConstraint()
+        }
     }
-
-    func set(results: Characters){
-        let url = URL(string: results.image)
-        characterImageView.downloaded(from: url!)
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        characterImageView.image = UIImage(named: "placeholder")
+        
+        
+    }
+    
+    func setImage(){
+        let url = URL(string: results?.image ?? "placeholder")
+        characterImageView.downloaded(from: url ?? URL(fileURLWithPath: "image") )
         
     }
     func configureImageView () {
         characterImageView.layer.cornerRadius = 10
         characterImageView.clipsToBounds = true
     }
-    func confirgureContentLabel () {
-        contentLabel.textAlignment = .center
-    }
+    
     
     func setImageConstraint(){
         characterImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,13 +56,4 @@ class CellCharacterDetails: UITableViewCell {
         ])
     }
     
-    func setContentLabelConstraint (){
-        contentLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            contentLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
-    }
 }

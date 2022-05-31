@@ -44,8 +44,8 @@ class CharacterListDelegateTest: XCTestCase {
     func testShowNextViewControllerIsCalledViewNil() {
         sut.view = nil
         let tableView = viewController.view.subviews[0] as! UITableView
-        let test = sut.tableView(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
-        print(test)
+        sut.tableView(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+//        print(test)
         XCTAssertFalse(characterListView.showNextViewControllerCalled)
     }
     
