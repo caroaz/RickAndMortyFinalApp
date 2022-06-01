@@ -20,30 +20,30 @@ class CellCharactersList: UITableViewCell {
             self.statusLabel.text = results.status
             
             let url = URL(string: results.image)
-        
-                self.characterImageView.downloaded(from: url!)
+            
+            self.characterImageView.downloaded(from: url!)
         }
         
     }
-  
+    
     func prepare(){
         if !prepared{
             
-        contentView.addSubview(container)
+            contentView.addSubview(container)
             containerConf()
-        configureNameLabel()
-        setNameLabelConstraint()
-        containerConstraint ()
-        configureImageView()
-        setImageConstraint()
-        setNameLabelConstraint()
-        setStatusLabelConstraint()
-        confstatusLabel()
-        mybuttonConfig()
-        myButtonConstraint()
+            configureNameLabel()
+            setNameLabelConstraint()
+            containerConstraint ()
+            configureImageView()
+            setImageConstraint()
+            setNameLabelConstraint()
+            setStatusLabelConstraint()
+            confstatusLabel()
+            mybuttonConfig()
+            myButtonConstraint()
             prepared = true
-                characterImageView.image = UIImage(named: "placeholder")
-            }
+            //                characterImageView.image = UIImage(named: "placeholder")
+        }
     }
     private func containerConf(){
         container.addSubview(characterImageView)
@@ -66,7 +66,7 @@ class CellCharactersList: UITableViewCell {
         })
     }
     
-   
+    
     
     private func configureImageView () {
         characterImageView.layer.cornerRadius = 10
@@ -88,7 +88,7 @@ class CellCharactersList: UITableViewCell {
         
     }
     //
-   
+    
     private func setImageConstraint(){
         characterImageView.translatesAutoresizingMaskIntoConstraints = false
         

@@ -17,7 +17,7 @@ class CharacterDetailViewController: UIViewController{
         self.viewDataSource = viewDataSource
         self.viewDelegate = viewDelegate
     }
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +32,7 @@ class CharacterDetailViewController: UIViewController{
         setTableViewDelegates()
         tableDetailView.rowHeight = 280
         tableDetailView.register(CellCharacterDetails.self, forCellReuseIdentifier: "imageCell")
-        tableDetailView.register(CellCharacterDetails.self, forCellReuseIdentifier: "dataCell")
+        tableDetailView.register(CellCharacterDetailsContent.self, forCellReuseIdentifier: "dataCell")
         tableDetailView.pin(to :view)
     }
     

@@ -7,4 +7,5 @@ end
 target 'RickAndMortyFinalAppTests' do
     pod 'Mimic'
     pod 'Alamofire'
+    pod 'OHHTTPStubs/Swift'
 end

@@ -17,22 +17,4 @@ class ApiRestMock : APIRest{
         }
     }
     
-    
-    
-    
-//    func fetchApiData(onCompletion: @escaping ([String]?, APIError?) -> Void) {
-//
-//        if shouldFail {
-//            onCompletion(nil, APIError(errorMessage: ""))
-//
-//        }
-//        else {
-//            onCompletion(["Akita"], nil)
-//
-//        }
-//    }
-//
-    
-    
-    
 }
