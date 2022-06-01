@@ -13,10 +13,10 @@ class CharacterDetailDataSourceTest: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = CharacterDetailDataSource()
-
+        
         viewController = CharacterDetailViewController(viewDataSource: sut, viewDelegate: CharacterDetailDelegate())
         sut.view = viewController
- 
+        
     }
     
     

@@ -7,27 +7,23 @@ import XCTest
 class CharacterListViewControllerFactoryTest: XCTestCase{
     
     
-        var sut: CharacterListViewControllerFactory!
+    var sut: CharacterListViewControllerFactory!
+    
+    override func setUp() {
+        super.setUp()
         
-        override func setUp() {
-            super.setUp()
-            sut = CharacterListViewControllerFactory()
-
-        }
-        
-        
-        override func tearDown() {
-            sut = nil
-            super.tearDown()
-        }
-        
-        func testFactory() {
-            let vc = CharacterListViewControllerFactory.makeCharacterListViewController()
-            print("\(vc) xxxxxxx")
-            XCTAssertTrue((vc as Any) is CharactersListViewController)
-        }
-        
-      
-        
+    }
+    
+    
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+    
+    func testFactory() {
+        let vc = CharacterListViewControllerFactory.makeCharacterListViewController()
+        print("\(vc) xxxxxxx")
+        XCTAssertTrue((vc as Any) is CharactersListViewController)
+    }
     
 }
