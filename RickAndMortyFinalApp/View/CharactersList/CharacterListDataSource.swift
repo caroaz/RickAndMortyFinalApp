@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import UiModuleLib
 
 class CharacterListDataSource: NSObject {
     weak var view: CharacterListView?
@@ -17,14 +18,22 @@ extension CharacterListDataSource: UITableViewDataSource{
         guard let view = view else{
             return UITableViewCell()
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier:"characterListCell", for: indexPath as IndexPath) as! CellCharactersList
         
-        cell.results =  view.characterList[indexPath.row]
-        cell.selectionStyle = .none
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "1") as! Cell
+        let results = view.characterList[indexPath.row]
         cell.prepare()
+        cell.set(image: results.image, name: results.name, status: results.status)
+        
         cell.myButton.tag = indexPath.row
         cell.myButton.addTarget(self, action: #selector(clickButton(_:)), for: .touchUpInside)
+        //        let cell = tableView.dequeueReusableCell(withIdentifier:"characterListCell", for: indexPath as IndexPath) as! CellCharactersList
+        //
+        //        cell.results =  view.characterList[indexPath.row]
+        //        cell.selectionStyle = .none
+        //
+        //        cell.prepare()
+        //        cell.myButton.tag = indexPath.row
+        //        cell.myButton.addTarget(self, action: #selector(clickButton(_:)), for: .touchUpInside)
         
         return cell
         

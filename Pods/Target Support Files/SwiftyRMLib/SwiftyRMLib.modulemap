@@ -1,0 +1,6 @@
+module SwiftyRMLib {
+  umbrella header "SwiftyRMLib-umbrella.h"
+
+  export *
+  module * { export * }
+}

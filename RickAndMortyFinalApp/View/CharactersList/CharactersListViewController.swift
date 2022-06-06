@@ -1,5 +1,6 @@
 
 import UIKit
+import UiModuleLib
 class CharactersListViewController: UIViewController {
     
     var characterList :  [Characters] = []
@@ -44,8 +45,8 @@ class CharactersListViewController: UIViewController {
         setTableViewDelegates()
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
-        
-        tableView.register(CellCharactersList.self, forCellReuseIdentifier: "characterListCell")
+        tableView.register(Cell.self, forCellReuseIdentifier: "1")
+//        tableView.register(CellCharactersList.self, forCellReuseIdentifier: "characterListCell")
         
         tableView.pin(to :view)
         

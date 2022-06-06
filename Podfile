@@ -1,7 +1,8 @@
-platform :ios, '15.2'
+platform :ios, '15.0'
 
 target 'RickAndMortyFinalApp' do
-    pod 'Alamofire'
+    pod 'SwiftyRMLib', :path => '/Users/mobdev2/desktop/SwiftyRMLib/SwiftyRMLib'
+    pod 'UiModuleLib', :path => '/Users/mobdev2/desktop/UiModuleLib'
 end 
 
 target 'RickAndMortyFinalAppTests' do

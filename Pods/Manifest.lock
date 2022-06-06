@@ -14,11 +14,16 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (9.1.0)
   - OHHTTPStubs/Swift (9.1.0):
     - OHHTTPStubs/Default
+  - SwiftyRMLib (0.0.1):
+    - Alamofire
+  - UiModuleLib (0.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - Mimic
   - OHHTTPStubs/Swift
+  - SwiftyRMLib (from `/Users/mobdev2/desktop/SwiftyRMLib/SwiftyRMLib`)
+  - UiModuleLib (from `/Users/mobdev2/desktop/UiModuleLib`)
 
 SPEC REPOS:
   trunk:
@@ -26,11 +31,19 @@ SPEC REPOS:
     - Mimic
     - OHHTTPStubs
 
+EXTERNAL SOURCES:
+  SwiftyRMLib:
+    :path: "/Users/mobdev2/desktop/SwiftyRMLib/SwiftyRMLib"
+  UiModuleLib:
+    :path: "/Users/mobdev2/desktop/UiModuleLib"
+
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   Mimic: d7086284f407486ad28cb0e41ef060a2911a7634
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
+  SwiftyRMLib: c3498d797dbad611c22a1dfe29c1f3bef24f7a23
+  UiModuleLib: baa87d8202ec7ea2aef74a5796633dc6da38e349
 
-PODFILE CHECKSUM: 681186b35f5488c6088453433fbc54e943d0fbe2
+PODFILE CHECKSUM: 9dfbbd334360a8331db67964a08bf3df140a8c65
 
 COCOAPODS: 1.11.3

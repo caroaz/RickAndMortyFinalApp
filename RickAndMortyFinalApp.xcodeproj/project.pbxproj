@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25451B202849A2C300FF6B5F /* APINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25451B1F2849A2C300FF6B5F /* APINetwork.swift */; };
 		2576562C2841C55900E435A4 /* AlamofireCallRickAndMortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576562B2841C55900E435A4 /* AlamofireCallRickAndMortyTests.swift */; };
 		2576562E2841CAE300E435A4 /* MockingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576562D2841CAE300E435A4 /* MockingProtocol.swift */; };
 		25BBBB1228465B2B008FEFD6 /* RMApiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BBBB1128465B2B008FEFD6 /* RMApiNetwork.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		0E9FFACE445518578EAE59BA /* Pods-RickAndMortyFinalAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyFinalAppTests.release.xcconfig"; path = "Target Support Files/Pods-RickAndMortyFinalAppTests/Pods-RickAndMortyFinalAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		25451B1F2849A2C300FF6B5F /* APINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetwork.swift; sourceTree = "<group>"; };
 		2576562B2841C55900E435A4 /* AlamofireCallRickAndMortyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireCallRickAndMortyTests.swift; sourceTree = "<group>"; };
 		2576562D2841CAE300E435A4 /* MockingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingProtocol.swift; sourceTree = "<group>"; };
 		25BBBB1128465B2B008FEFD6 /* RMApiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMApiNetwork.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				25C9C1F52837F6090076FD7A /* APICallRickAndMorty.swift */,
 				25C9C2582841319A0076FD7A /* AlamofireCallRickAndMorty.swift */,
 				25BBBB1128465B2B008FEFD6 /* RMApiNetwork.swift */,
+				25451B1F2849A2C300FF6B5F /* APINetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				25C9C241283E772C0076FD7A /* CharacterDetailViewControllerFactory.swift in Sources */,
 				25C9C23F283E76A50076FD7A /* CharacterDetailDelegate.swift in Sources */,
 				25C9C1C42837F3A10076FD7A /* AppDelegate.swift in Sources */,
+				25451B202849A2C300FF6B5F /* APINetwork.swift in Sources */,
 				25C9C2032837FD1B0076FD7A /* ExtensionAttributedString.swift in Sources */,
 				25C9C2592841319A0076FD7A /* AlamofireCallRickAndMorty.swift in Sources */,
 				25C9C234283D815C0076FD7A /* CharacterListView.swift in Sources */,
