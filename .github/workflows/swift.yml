@@ -19,6 +19,7 @@ jobs:
       - name: Build
         run: |
           xcodebuild clean build -workspace RickAndMortyFinalApp.xcworkspace -scheme RickAndMortyFinalApp -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcrun simctl list
         env: 
          destination: ${{ matrix.destination }}
       - name: Test
