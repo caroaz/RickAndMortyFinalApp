@@ -18,11 +18,9 @@ jobs:
         uses: actions/checkout@master
       - name: Build
         run: |
-          xcodebuild clean build -workspace RickAndMortyFinalApp.xcworkspace -scheme RickAndMortyFinalApp -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-        env: 
-         destination: ${{ matrix.destination }}
+         xcodebuild -workspace RickAndMortyFinalApp.xcworkspace -scheme RickAndMortyFinalApp -configuration Debug build test \
+  -destination 'platform=iOS Simulator,name=iPhone 8'
       - name: Test
         run: |
-          xcodebuild clean test -workspace RickAndMortyFinalApp.xcworkspace -scheme RickAndMortyFinalApp -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-        env: 
-         destination: ${{ matrix.destination }}
+           xcodebuild -workspace RickAndMortyFinalApp.xcworkspace -scheme RickAndMortyFinalApp -configuration Debug build test \
+  -destination 'platform=iOS Simulator,name=iPhone 8'
