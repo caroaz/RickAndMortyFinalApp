@@ -13,7 +13,10 @@ jobs:
     strategy:
         matrix:
           destination: ["platform=iOS Simulator,name=iPhone 11"]
+    
     steps:
+      - name: Force Xcode 13
+ 	      run: sudo xcode-select -switch /Applications/Xcode_13.app
       - name: Checkout
         uses: actions/checkout@main
       - name: Build
