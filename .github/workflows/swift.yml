@@ -15,9 +15,10 @@ jobs:
           destination: ["platform=iOS Simulator,name=iPhone 11"]
     
     steps:
-      - name: Force Xcode 13
-        run: |
-          sudo xcode-select -switch /Applications/Xcode_13.app
+     - name: "Select the latest stable Xcode 12"
+     uses: devbotsxyz/xcode-select@v1
+     with:
+      version: "13"
       - name: Checkout
         uses: actions/checkout@main
       - name: Build
