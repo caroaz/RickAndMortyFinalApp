@@ -18,7 +18,7 @@ jobs:
       - name: Select the latest stable Xcode 12
         uses: devbotsxyz/xcode-select@v1
         with: 
-          version: '13'
+          version: '13.2.1'
       - name: Checkout
         uses: actions/checkout@main
       - name: Build
